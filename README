@@ -1,195 +1,47 @@
-###Mini Loja em JavaScript
+## Mini Loja em JavaScript
 
 Este projeto é uma Mini Loja desenvolvida em JavaScript puro, com o objetivo de simular um fluxo básico de compras utilizando manipulação de arrays, objetos e funções.
 Ele inclui catálogo de produtos, carrinho, aplicação de cupons de desconto, finalização de compra e histórico de pedidos.
 
 Funcionalidades Implementadas
 1. Catálogo de Produtos
--Armazena informações como ID, nome, preço e categoria.
--Permite listar produtos disponíveis.
+- Armazena informações como ID, nome, preço e categoria.
+- Permite listar produtos disponíveis.
 
 2. Carrinho de Compras
--Adiciona itens ao carrinho.
--Remove itens.
--Exibe itens com seus respectivos nomes e preços.
--Calcula total parcial.
+- Adiciona itens ao carrinho.
+- Remove itens.
+- Exibe itens com seus respectivos nomes e preços.
+- Calcula total parcial.
 
 3. Cupons de Desconto
--Aceita cupons que aplicam desconto percentual.
--Calcula e exibe o total com desconto claro:
--Total com desconto de 10%: R$ 27.50
+- Aceita cupons que aplicam desconto percentual.
+- Calcula e exibe o total com desconto claro:
+- Exemplo: Total com desconto de 10%: R$ 27.50
 
 4. Finalização da Compra
--Gera um pedido completo contendo:
--Lista de itens comprados
--Total final
--Total com desconto
--Percentual do cupom
--Data da compra
+- Gera um pedido completo contendo:
+- Lista de itens comprados
+- Total final
+- Total com desconto
+- Percentual do cupom
+- Data da compra
 
 5. Histórico de Pedidos
--Guarda todos os pedidos finalizados.
--Mostra valores formatados no padrão:
--Total: 27.5
+- Guarda todos os pedidos finalizados.
+- Mostra valores formatados no padrão:
+- Exemplo: Total: 27.5
 
 6. Sorteio Promocional
 
 Ao final da compra, o sistema executa um sorteio simples usando Math.random() para premiar clientes.
 
-##Estrutura do Código
-
-A seguir está uma explicação clara e simples do que cada parte do código faz.
-
-1. Catálogo de Produtos
-const produtos = [
-  { id: 1, nome: "Arroz", preco: 10, categoria: "alimentos" },
-  { id: 2, nome: "Feijão", preco: 8, categoria: "alimentos" },
-  { id: 3, nome: "Suco", preco: 5, categoria: "bebidas" },
-];
 
 
-## Armazena os dados dos produtos da loja.
-
-2. Função listarProdutos()
-function listarProdutos() {
-  return produtos;
-}
 
 
-##Retorna o catálogo completo.
-
-3. Carrinho de Compras
-let carrinho = [];
 
 
-## Armazena temporariamente os itens que o cliente adiciona.
-
-4. Adicionar ao Carrinho
-function adicionarAoCarrinho(idProduto, quantidade) {
-  const produto = produtos.find(p => p.id === idProduto);
-  if (!produto) return "Produto não encontrado!";
-
-  carrinho.push({
-    id: produto.id,
-    nome: produto.nome,   // <-- Agora aparece no carrinho!
-    preco: produto.preco,
-    quantidade
-  });
-
-  return `${produto.nome} adicionado ao carrinho!`;
-}
 
 
-## Procura o produto pelo ID e adiciona ao carrinho com o nome real.
 
-5. Exibir Carrinho
-function exibirCarrinho() {
-  return carrinho.map(item => ({
-    nome: item.nome,
-    quantidade: item.quantidade,
-    precoUnitario: item.preco,
-    subtotal: item.preco * item.quantidade
-  }));
-}
-
-
-## Mostra o nome correto dos produtos e subtotais.
-
-6. Cálculo do Total
-function calcularTotal() {
-  return carrinho.reduce((soma, item) => soma + item.preco * item.quantidade, 0);
-}
-
-
-## Soma o total de todos os itens no carrinho.
-
-7. Aplicar Cupom
-function aplicarCupom(total, cupom) {
-  const cupons = {
-    DESCONTO10: 10,
-    DESCONTO20: 20,
-  };
-
-  const desconto = cupons[cupom] || 0;
-  const totalComDesconto = total - total * (desconto / 100);
-
-  return { desconto, totalComDesconto };
-}
-
-
-## Aplica porcentagem de desconto se o cupom existir.
-
-8. Histórico de Pedidos
-let historico = [];
-
-9. Finalizar Compra
-function finalizarCompra(cupom) {
-  const total = calcularTotal();
-  const resultado = aplicarCupom(total, cupom);
-
-  const pedido = {
-    itens: [...carrinho],
-    total,
-    descontoPercentual: resultado.desconto,
-    totalComDesconto: resultado.totalComDesconto,
-    data: new Date().toLocaleString(),
-  };
-
-  historico.push(pedido);
-
-  carrinho = []; // limpa carrinho
-
-  return pedido;
-}
-
-
-## Cria um pedido completo e adiciona ao histórico.
-
-10. Exibir Histórico
-function exibirHistorico() {
-  return historico.map(p => ({
-    data: p.data,
-    total: p.totalComDesconto // Formato: Total: 27.5
-  }));
-}
-
-Exemplos de Saída
-➤ Adicionando produtos:
-Arroz adicionado ao carrinho!
-Feijão adicionado ao carrinho!
-
-➤ Exibindo carrinho:
-[
-  {
-    "nome": "Arroz",
-    "quantidade": 2,
-    "precoUnitario": 10,
-    "subtotal": 20
-  },
-  {
-    "nome": "Feijão",
-    "quantidade": 1,
-    "precoUnitario": 8,
-    "subtotal": 8
-  }
-]
-
-➤ Finalizando compra com cupom DESCONTO10:
-{
-  "itens": [
-    { "id": 1, "nome": "Arroz", "preco": 10, "quantidade": 2 },
-    { "id": 2, "nome": "Feijão", "preco": 8, "quantidade": 1 }
-  ],
-  "total": 28,
-  "descontoPercentual": 10,
-  "totalComDesconto": 25.2,
-  "data": "03/12/2025 20:15:00"
-}
-
-➤ Histórico de pedidos:
-[
-  {
-    "data": "03/12/2025 20:15:00",
-    "total": 25.2
-  }
-]
