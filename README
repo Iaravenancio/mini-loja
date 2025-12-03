@@ -1,4 +1,4 @@
-## Mini Loja em JavaScript
+###Mini Loja em JavaScript
 
 Este projeto é uma Mini Loja desenvolvida em JavaScript puro, com o objetivo de simular um fluxo básico de compras utilizando manipulação de arrays, objetos e funções.
 Ele inclui catálogo de produtos, carrinho, aplicação de cupons de desconto, finalização de compra e histórico de pedidos.
@@ -36,7 +36,7 @@ Funcionalidades Implementadas
 
 Ao final da compra, o sistema executa um sorteio simples usando Math.random() para premiar clientes.
 
-## Estrutura do Código
+##Estrutura do Código
 
 A seguir está uma explicação clara e simples do que cada parte do código faz.
 
@@ -56,7 +56,7 @@ function listarProdutos() {
 }
 
 
-## Retorna o catálogo completo.
+##Retorna o catálogo completo.
 
 3. Carrinho de Compras
 let carrinho = [];
