@@ -34,17 +34,15 @@ Você pode criar erros personalizados:
 2) Uso de Map()
 Você deverá utilizar Map() para armazenar ou organizar alguma parte do projeto de maneira mais eficiente. Use Map() em pelo menos uma destas formas:
 
-# Opção A — Map para índice rápido de produtos por ID
+### Opção A — Map para índice rápido de produtos por ID
 Isso facilita buscas sem percorrer arrays:
-
   `const mapaProdutos = new Map();
   produtos.forEach(p => mapaProdutos.set(p.id, p));`
 
 Uso:
   `const produto = mapaProdutos.get(2);`
 
-# Opção B — Map para cupons de desconto
-
+### Opção B — Map para cupons de desconto
   `const cupons = new Map([
     ["DESCONTO10", 0.10],
     ["BLACKFRIDAY", 0.30]
@@ -52,15 +50,14 @@ Uso:
 
 Uso:
   `const percentual = cupons.get(codigoDigitado);`
-
+  
 Aplique try/catch caso o cupom não exista:
 
   `if (!cupons.has(codigoDigitado)) {
     throw new Error("Cupom inválido");
   }`
   
-# Opção C — Map para histórico de operações
-
+### Opção C — Map para histórico de operações
   `const historico = new Map();
   historico.set("ultimaCompra", { total: 89.90, itens: 3 });`
 Ou:
