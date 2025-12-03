@@ -1,4 +1,4 @@
-### Mini Loja em JavaScript
+## Mini Loja em JavaScript
 
 Este projeto é uma Mini Loja desenvolvida em JavaScript puro, com o objetivo de simular um fluxo básico de compras utilizando manipulação de arrays, objetos e funções.
 Ele inclui catálogo de produtos, carrinho, aplicação de cupons de desconto, finalização de compra e histórico de pedidos.
