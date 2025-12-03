@@ -18,24 +18,24 @@ Escopo mínimo
 
 ### Requisitos detalhados
 1.catalogo:
-     * `listar()` → retorna o array de produtos.
-     * `buscarPorNome(nome)` → retorna produto (use find).
-     * `filtrarPorPreco(min, max)` → retorna array de produtos no intervalo.
-     * `atualizarEstoque(id, delta)` → altera estoque somando delta (positivo ou negativo).
+ * `listar()` → retorna o array de produtos.
+ * `buscarPorNome(nome)` → retorna produto (use find).
+ * `filtrarPorPreco(min, max)` → retorna array de produtos no intervalo.
+ * `atualizarEstoque(id, delta)` → altera estoque somando delta (positivo ou negativo).
         
  2.carrinho:
-     * Estrutura do carrinho: array de itens { produtoId, quantidade }.
-     * adicionar(carrinho, produtoId, qtd) — adiciona verificando estoque; se já existe, soma quantidade.
-     * remover(carrinho, produtoId) — remove o item do carrinho.
-     * alterarQuantidade(carrinho, produtoId, novaQtd) — ajusta quantidade, validando estoque; se novaQtd for 0, remove.
-     * calcularTotal(carrinho) — soma preços * quantidades (use catalogo para obter preço).
+ * Estrutura do carrinho: array de itens { produtoId, quantidade }.
+ * adicionar(carrinho, produtoId, qtd) — adiciona verificando estoque; se já existe, soma quantidade.
+ * remover(carrinho, produtoId) — remove o item do carrinho.
+ * alterarQuantidade(carrinho, produtoId, novaQtd) — ajusta quantidade, validando estoque; se novaQtd for 0, remove.
+ * calcularTotal(carrinho) — soma preços * quantidades (use catalogo para obter preço).
 
  3.dicas:
-     * Monte um catálogo inicial.
-     * Crie um carrinho vazio, adicione items, altere quantidades, aplique cupom de desconto e imprima o total final formatado.
-     * Demonstre buscas (por nome) e filtragens.
+ * Monte um catálogo inicial.
+ * Crie um carrinho vazio, adicione items, altere quantidades, aplique cupom de desconto e imprima o total final formatado.
+ * Demonstre buscas (por nome) e filtragens.
 
-   Extras:
-    * Implementar ordenação de produtos por preço (uso de sort).
-    * Implementar histórico de pedidos (matriz: cada pedido é uma linha com itens e total).
-    * Implementar função sorteioPromo(listaProdutos) que retorna um produto aleatório em promoção (use Math.random).
+ Extras:
+* Implementar ordenação de produtos por preço (uso de sort).
+* Implementar histórico de pedidos (matriz: cada pedido é uma linha com itens e total).
+* Implementar função sorteioPromo(listaProdutos) que retorna um produto aleatório em promoção (use Math.random).
